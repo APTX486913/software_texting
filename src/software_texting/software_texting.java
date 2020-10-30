@@ -2,7 +2,7 @@
 //2020.10.30
 //修改了类的内容，类的逻辑更清晰
 
-package software_texting;
+package software_texting; 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -79,7 +79,6 @@ class UI
 	    public void setAction()
 	    {
 	    	 buttom.addActionListener(new ActionListener(){
-				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					try{
 							// TODO Auto-generated method stub
