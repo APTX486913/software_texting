@@ -40,6 +40,7 @@ class UI
 		private static JTextField line3 = new JTextField(); // 创建一个单行输入框
 		//页面创建函数
 	    public static void createAndShowGUI() {
+	    	label.setText("请输入三边长");
 	        frame.setSize(500, 300);
 	        
 	    	line1.setEditable(true); // 设置输入框允许编辑
@@ -76,32 +77,44 @@ class UI
 	        bottom_panal.add(result);
 	        frame.setVisible(true);
 	    }
+	    //添加按钮事件
 	    public void setAction()
 	    {
 	    	 buttom.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent arg0) {
-					try{
-							// TODO Auto-generated method stub
-							num1=Double.valueOf(line1.getText());
-							num2=Double.valueOf(line2.getText());
-							num3=Double.valueOf(line3.getText());
-						
-							if(num1<=0 || num2 <=0 ||num3<=0)
-							{
-								result.setText("边长不合法");
-							}
-							else
-							{
-								equilateral_striangle tr=new equilateral_striangle(num1,num2,num3);
-								tr.checktype_equilateral_striangle();
-								result.setText(tr.getMessage());
-							}
-						}
-					catch(Exception e){
-						result.setText("请输入合法边长");
-					}
+					// TODO Auto-generated method stub
+					setdata(line1.getText(),line2.getText(),line3.getText());
+			
 				}});
 	    }
+	    //输入边长并判断输入是否合法
+	    public void setdata(String n1,String n2,String n3)
+	    {
+	    	try{
+				num1=Double.valueOf(n1);
+				num2=Double.valueOf(n2);
+				num3=Double.valueOf(n3);
+				if(num1<=0 || num2 <=0 || num3<=0)
+				{
+					result.setText("边长不合法");
+				}
+				else
+				{
+					result.setText(addobj(num1,num2,num3));
+				}
+			}
+			catch(Exception e){
+				result.setText("请输入合法边长");
+			}
+		
+	    }
+	    //新建三角对象并返回判断结果
+	    private String addobj(double n1,double n2,double n3) 
+	    {
+	    	equilateral_striangle tr=new equilateral_striangle(n1,n2,n3);
+			tr.checktype_equilateral_striangle();
+			return (tr.getMessage());
+		}
 }
 ///一般三角形
 class triangle{
