@@ -104,7 +104,7 @@ public class UI
 		
 	    }
 	    //新建三角对象并返回判断结果
-	    private String addobj(double n1,double n2,double n3) 
+	    public String addobj(double n1,double n2,double n3) 
 	    {
 	    	equilateral_striangle tr=new equilateral_striangle(n1,n2,n3);
 			tr.checktype_equilateral_striangle();
